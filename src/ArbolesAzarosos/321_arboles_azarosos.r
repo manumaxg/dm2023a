@@ -21,13 +21,13 @@ require("rpart")
 
 PARAM <- list()
 PARAM$experimento  <- 3210
-PARAM$semilla  <- 102191      #Establezco la semilla aleatoria, cambiar por SU primer semilla
+PARAM$semilla  <- 158771      #Establezco la semilla aleatoria, cambiar por SU primer semilla
 
 #parameetros rpart
 PARAM$rpart_param   <- list( "cp"=          -1,
-                              "minsplit"=  300,
+                              "minsplit"=  50,
                               "minbucket"=  20,
-                              "maxdepth"=   10 )
+                              "maxdepth"=   8 )
 
 #parametros  arbol
 PARAM$feature_fraction  <- 0.5  #entreno cada arbol con solo 50% de las variables variables
@@ -38,15 +38,16 @@ PARAM$num_trees_max  <- 500 #voy a generar 500 arboles, a mas arboles mas tiempo
 #------------------------------------------------------------------------------
 #Aqui comienza el programa
 
-setwd("X:\\gdrive\\itba2023a\\")  #Establezco el Working Directory
+setwd("C:\\Users\\mmgma\\OneDrive\\Escritorio\\Data Mining\\exp\\KA2001\\dm2023a")  #Establezco el Working Directory
 
 #cargo los datos
 dataset  <- fread("./datasets/dataset_pequeno.csv")
 
-
 #creo la carpeta donde va el experimento
 dir.create( "./exp/", showWarnings = FALSE  )
+
 carpeta_experimento  <-  paste0( "./exp/KA", PARAM$experimento, "/")
+
 dir.create( paste0( "./exp/KA", PARAM$experimento, "/"), 
             showWarnings = FALSE )
 
