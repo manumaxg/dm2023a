@@ -115,7 +115,7 @@ for( vmax_depth  in  c( 4, 6, 8, 10, 12, 14 )  )
 {
 for( vmin_split  in  c( 1000, 800, 600, 400, 200, 100, 50, 20, 10 )  ){
   for ( minbucket in c(200, 100, 50, 10, 5, 1) ) {
-    for cp in c(0, 0.1, -0.5, 0.5., -1)
+    for( cp in c(0, 0.1, -0.5, 0.5, -1))
 {
 
   #notar como se agrega
