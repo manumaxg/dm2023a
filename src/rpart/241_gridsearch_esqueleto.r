@@ -15,7 +15,7 @@ require("data.table")
 require("rpart")
 require("parallel")
 
-ksemillas  <- c(102191, 200177, 410551, 552581, 892237) #reemplazar por las propias semillas
+ksemillas  <- c(158771, 616523, 742499, 217981, 235439) #reemplazar por las propias semillas
 
 #------------------------------------------------------------------------------
 #particionar agrega una columna llamada fold a un dataset que consiste en una particion estratificada segun agrupa
@@ -82,7 +82,7 @@ ArbolesMontecarlo  <- function( semillas, param_basicos )
 #------------------------------------------------------------------------------
 
 #Aqui se debe poner la carpeta de la computadora local
-setwd("X:\\gdrive\\ITBA2023a\\")  #Establezco el Working Directory
+setwd("C:\\Users\\mmgma\\OneDrive\\Escritorio\\Data Mining\\exp\\KA2001\\dm2023a")  #Establezco el Working Directory
 #cargo los datos
 
 #cargo los datos
@@ -113,13 +113,15 @@ cat( file=archivo_salida,
 
 for( vmax_depth  in  c( 4, 6, 8, 10, 12, 14 )  )
 {
-for( vmin_split  in  c( 1000, 800, 600, 400, 200, 100, 50, 20, 10 )  )
+for( vmin_split  in  c( 1000, 800, 600, 400, 200, 100, 50, 20, 10 )  ){
+  for ( minbucket in c(200, 100, 50, 10, 5, 1) ) {
+    for cp in c(0, 0.1, -0.5, 0.5., -1)
 {
 
   #notar como se agrega
-  param_basicos  <- list( "cp"=         -0.5,       #complejidad minima
+  param_basicos  <- list( "cp"=         cp,       #complejidad minima
                           "minsplit"=  vmin_split,  #minima cantidad de registros en un nodo para hacer el split
-                          "minbucket"=  5,          #minima cantidad de registros en una hoja
+                          "minbucket"= minbucket,          #minima cantidad de registros en una hoja
                           "maxdepth"=  vmax_depth ) #profundidad máxima del arbol
 
   #Un solo llamado, con la semilla 17
@@ -135,3 +137,4 @@ for( vmin_split  in  c( 1000, 800, 600, 400, 200, 100, 50, 20, 10 )  )
 
 }
 }
+}}
