@@ -110,12 +110,12 @@ cat( file=archivo_salida,
 
 #itero por los loops anidados para cada hiperparametro
 #Aqui usted debera agregar loops !
-
+i = 0
 for( vmax_depth  in  c( 4, 6, 8, 10, 12, 14 )  )
 {
-for( vmin_split  in  c( 1000, 800, 600, 400, 200, 100, 50, 20, 10 )  ){
-  for ( minbucket in c(200, 100, 50, 10, 5, 1) ) {
-    for( cp in c(0, 0.1, -0.5, 0.5, -1))
+for( vmin_split  in  c( 1000, 800, 400, 200, 100, 50, 20, 10 )  ){
+  for ( minbucket in c(200, 100, 50, 10, 5) ) {
+    for( cp in c(0,-0.5, 0.5, -1))
 {
 
   #notar como se agrega
@@ -131,10 +131,13 @@ for( vmin_split  in  c( 1000, 800, 600, 400, 200, 100, 50, 20, 10 )  ){
   cat(  file=archivo_salida,
         append= TRUE,
         sep= "",
+        cp, "\t",
+        minbucket, "\t",
         vmax_depth, "\t",
         vmin_split, "\t",
         ganancia_promedio, "\n"  )
-
+i = i + 1
+print(i)
 }
 }
 }}
