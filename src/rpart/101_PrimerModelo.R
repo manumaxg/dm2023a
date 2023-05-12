@@ -53,4 +53,5 @@ dapply[ , Predicted := as.numeric( prob_baja2 > 1/40 ) ]
 fwrite( dapply[ , list(numero_de_cliente, Predicted) ], #solo los campos para Kaggle
         file= "./exp/KA2001/K101_001.csv",
         sep=  "," )
-print("llegué hasta acá")
+plotcp(output.tree)
+
