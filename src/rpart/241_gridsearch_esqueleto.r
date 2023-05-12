@@ -103,6 +103,7 @@ archivo_salida  <- "./exp/HT2020/gridsearch.txt"
 #la forma que no suceda lo anterior es con append=TRUE
 cat( file=archivo_salida,
      sep= "",
+     "minbucket", "\t",
      "max_depth", "\t",
      "min_split", "\t",
      "ganancia_promedio", "\n")
@@ -111,15 +112,14 @@ cat( file=archivo_salida,
 #itero por los loops anidados para cada hiperparametro
 #Aqui usted debera agregar loops !
 i = 0
-for( vmax_depth  in  c( 4, 6, 8, 10, 12, 14 )  )
+for( vmax_depth  in  c( 6, 8, 10)  )
 {
-for( vmin_split  in  c( 1000, 800, 400, 200, 100, 50, 20, 10 )  ){
-  for ( minbucket in c(200, 100, 50, 10, 5) ) {
-    for( cp in c(0,-0.5, 0.5, -1))
-{
+for( vmin_split  in  c(800, 600 )  ){
+  for ( minbucket in c(100, 50, 10, 5) ) {
+
 
   #notar como se agrega
-  param_basicos  <- list( "cp"=         cp,       #complejidad minima
+  param_basicos  <- list( "cp"=         -0.1,       #complejidad minima
                           "minsplit"=  vmin_split,  #minima cantidad de registros en un nodo para hacer el split
                           "minbucket"= minbucket,          #minima cantidad de registros en una hoja
                           "maxdepth"=  vmax_depth ) #profundidad máxima del arbol
@@ -131,7 +131,6 @@ for( vmin_split  in  c( 1000, 800, 400, 200, 100, 50, 20, 10 )  ){
   cat(  file=archivo_salida,
         append= TRUE,
         sep= "",
-        cp, "\t",
         minbucket, "\t",
         vmax_depth, "\t",
         vmin_split, "\t",
@@ -140,4 +139,4 @@ i = i + 1
 print(i)
 }
 }
-}}
+}
