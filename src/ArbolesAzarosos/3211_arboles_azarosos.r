@@ -116,3 +116,4 @@ for( arbolito in  1:PARAM$num_trees_max )
 
   cat( arbolito, "\n" )  #imprimo cada pasada para no angustiarme
 }
+
