@@ -146,7 +146,7 @@ EstimarGanancia  <- function( x )
 #------------------------------------------------------------------------------
 #Aqui empieza el programa
 
-setwd("X:\\gdrive\\ITBA2023a\\")   #Establezco el Working Directory
+setwd("~/buckets/b1/datasets")   #Establezco el Working Directory
 
 #cargo los datos
 dataset  <- fread("./datasets/dataset_pequeno.csv")
