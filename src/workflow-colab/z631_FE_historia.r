@@ -56,7 +56,8 @@ PARAM$RandomForest$min.node.size  <- 1000
 PARAM$RandomForest$mtry  <- 40
 PARAM$RandomForest$semilla  <- 102191    # cambiar por la propia semilla
 
-PARAM$CanaritosAsesinos$ratio  <- 0.0        #varia de 0.0 a 2.0, si es 0.0 NO se activan
+PARAM$CanaritosAsesinos$ratio  <- 0.1        #varia de 0.0 a 2.0, si es 0.0 NO se activan
+PARAM$CanaritosAsesinos$desvios  <- 4.0      #desvios estandar de la media, para el cutoff
 PARAM$CanaritosAsesinos$semilla  <- 200177   # cambiar por la propia semilla
 # FIN Parametros del script
 
@@ -267,7 +268,7 @@ fganancia_lgbm_meseta  <- function(probs, datos)
 
 GVEZ <- 1
 
-CanaritosAsesinos  <- function( canaritos_ratio=0.2, canaritos_semilla=999983 )
+CanaritosAsesinos  <- function( canaritos_ratio=0.2, canaritos_desvios=3.0, canaritos_semilla=999983 )
 {
   gc()
   dataset[ , clase01:= ifelse( clase_ternaria=="CONTINUA", 0, 1 ) ]
@@ -327,7 +328,8 @@ CanaritosAsesinos  <- function( canaritos_ratio=0.2, canaritos_semilla=999983 )
 
   GVEZ  <<- GVEZ + 1
 
-  umbral  <- tb_importancia[ Feature %like% "canarito", median(pos) + 2*sd(pos) ]  #Atencion corto en la mediana mas DOS desvios!!
+  umbral  <- tb_importancia[ Feature %like% "canarito", 
+                             median(pos) +  canaritos_desvios*sd(pos) ]  #Atencion corto en la mediana mas desvios!!
 
   col_utiles  <- tb_importancia[ pos < umbral & !( Feature %like% "canarito"),  Feature ]
   col_utiles  <-  unique( c( col_utiles,  c("numero_de_cliente","foto_mes","clase_ternaria","mes") ) )
@@ -469,6 +471,7 @@ if( PARAM$CanaritosAsesinos$ratio > 0.0)
 {
   ncol( dataset )
   CanaritosAsesinos( canaritos_ratio= PARAM$CanaritosAsesinos$ratio,
+                     canaritos_desvios= PARAM$CanaritosAsesinos$desvios,
                      canaritos_semilla=  PARAM$CanaritosAsesinos$semilla )
   ncol( dataset )
 }
