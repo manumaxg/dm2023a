@@ -55,8 +55,8 @@ PARAM$hyperparametertuning$hs  <- makeParamSet(
          makeIntegerParam("min_data_in_leaf", lower=    1L  , upper=  8000L),
          makeIntegerParam("num_leaves",       lower=   16L  , upper=  1024L),
          makeNumericParam("lambda_l1", lower = 0, upper = 2),
-         makeNumericParam("lambda_l2", lower = 0, upper = 1),
-         makeNumericParam("min_gain_to_split", lower = 0, upper = 2 ),
+         makeNumericParam("lambda_l2", lower = 0, upper = 2),
+         makeNumericParam("min_gain_to_split", lower = 0, upper = 5 ),
          makeIntegerParam("envios",           lower= 5000L  , upper= 15000L)
         )
 # FIN Parametros del script
