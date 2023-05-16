@@ -23,13 +23,13 @@ PARAM$input$future        <- c( 202109 )   #meses donde se aplica el modelo
 PARAM$finalmodel$semilla           <- 158771
 
 PARAM$finalmodel$num_iterations    <-  559
-PARAM$finalmodel$learning_rate     <-    0.0100007791756403
-PARAM$finalmodel$feature_fraction  <-    0.673752987020665
-PARAM$finalmodel$min_data_in_leaf  <-    1320
-PARAM$finalmodel$num_leaves        <-    680
-PARAM$finalmodel$lambda_l1         <-    1.67377484310569
-PARAM$finalmodel$lambda_l2         <-    0.985535056004693
-PARAM$finalmodel$min_gain_to_split <-    0.26978681524518
+PARAM$finalmodel$learning_rate     <-    0.0148073597576701
+PARAM$finalmodel$feature_fraction  <-    0.459864021411049
+PARAM$finalmodel$min_data_in_leaf  <-    989
+PARAM$finalmodel$num_leaves        <-    910
+PARAM$finalmodel$lambda_l1         <-    3.2912476560522
+PARAM$finalmodel$lambda_l2         <-    7.70786211326228
+PARAM$finalmodel$min_gain_to_split <-    0.000246115923069319
 
 PARAM$finalmodel$max_bin           <-     31
 # FIN Parametros del script
@@ -89,7 +89,7 @@ modelo  <- lgb.train( data= dtrain,
                                    lambda_l1 =         PARAM$finalmodel$lambda_l1,      
                                    lambda_l2 =         PARAM$finalmodel$lambda_l2,
                                    max_bin =           PARAM$finalmodel$max_bin,     
-                                   min_gain_to_split = PARAM$finalmodel$min_gain_to_split,
+                                   min_gain_to_split = PARAM$finalmodel$min_gain_to_split
                                   )
                     )
 print("anda bien")
