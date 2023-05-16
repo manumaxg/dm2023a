@@ -87,7 +87,8 @@ modelo  <- lgb.train( data= dtrain,
                                    feature_fraction=   PARAM$finalmodel$feature_fraction,
                                    seed=               PARAM$finalmodel$semilla,
                                    lambda_l1 =         PARAM$finalmodel$lambda_l1,      
-                                   lambda_l2 =         PARAM$finalmodel$lambda_l2,     
+                                   lambda_l2 =         PARAM$finalmodel$lambda_l2,
+                                   max_bin =           PARAM$finalmodel$max_bin,     
                                    min_gain_to_split = PARAM$finalmodel$min_gain_to_split,
                                   )
                     )
