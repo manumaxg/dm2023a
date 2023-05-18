@@ -106,8 +106,10 @@ campos_buenos  <- setdiff( colnames(dataset), c( "clase_ternaria", "clase01") )
 #genero un modelo para cada uno de las modelos_qty MEJORES iteraciones de la Bayesian Optimization
 vganancias_suavizadas  <- c()
 
+imodelo  <- 0L
 for( modelo_rank in  PARAM$modelos_rank )
 {
+  imodelo  <- imodelo + 1L
   cat( "\nmodelo_rank: ", modelo_rank, ", semillas: " )
   OUTPUT$status$modelo_rank  <- modelo_rank
 
@@ -326,7 +328,6 @@ for( modelo_rank in  PARAM$modelos_rank )
 if( future_con_clase )
 {
   OUTPUT$ganancias_suavizadas  <- vganancias_suavizadas
-  OUTPUT$ganancias_suavizadas_mean  <- mean(vganancias_suavizadas)
 }
 
 OUTPUT$time$end  <- format(Sys.time(), "%Y%m%d %H%M%S")
