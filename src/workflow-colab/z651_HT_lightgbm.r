@@ -220,7 +220,7 @@ EstimarGanancia_lightgbm  <- function( x )
     tb_importancia    <- as.data.table( lgb.importance( modelo_train ) )
 
     fwrite( tb_importancia,
-            file= paste0( "impo_", GLOBAL_iteracion, ".txt" ),
+            file= paste0( "impo_", sprintf( "%03d", GLOBAL_iteracion), ".txt" ),
             sep= "\t" )
 
     rm( tb_importancia )
