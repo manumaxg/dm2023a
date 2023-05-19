@@ -46,4 +46,4 @@ setwd("C:\\Users\\mmgma\\OneDrive\\Escritorio\\Data Mining\\exp\\KA2001\\dm2023a
 dataset  <- fread("./datasets/dataset_pequeno.csv")
 
 #using datatable, find the distinct values in fotomes
-dataset[, unique(foto_mes)]
+print(dataset[, unique(foto_mes)])
