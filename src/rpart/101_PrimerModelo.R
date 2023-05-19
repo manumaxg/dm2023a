@@ -7,7 +7,7 @@ require("rpart.plot")
 
 #Aqui se debe poner la carpeta de la materia de SU computadora local
 
-setwd("C:\\Users\\mmgma\\OneDrive\\Escritorio\\Data Mining\\exp\\KA2001\\dm2023a")  #Establezco el Working Directory
+("C:/Users/mmgma/OneDrive/Escritorio/Data Mining")   #Establezco el Working Directory
 
 
 #cargo el dataset
