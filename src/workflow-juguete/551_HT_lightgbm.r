@@ -90,7 +90,8 @@ PARAM$bo_iteraciones  <- 50  #iteraciones de la Optimizacion Bayesiana
 
 #------------------------------------------------------------------------------
 #graba a un archivo los componentes de lista
-#para el primer registro, escribe antes los titulos
+#para el primer registro, escribe ante{
+  s los titulos
 
 exp_log  <- function( reg, arch=NA, folder="./exp/", ext=".txt", verbose=TRUE )
 {
