@@ -37,7 +37,8 @@ PARAM$train$semilla  <- 158771  # cambiar por su propia semilla  !!!
 PARAM$home  <- "~/buckets/b1/"
 # FIN Parametros del script
 
-
+# find unique foto_mes values in the dataset
+# unique( dataset$fecha_foto_mes )
 OUTPUT  <- list()
 
 # si training se establece identico a validation, entonces aguas abajo se hara Cross-Validation
