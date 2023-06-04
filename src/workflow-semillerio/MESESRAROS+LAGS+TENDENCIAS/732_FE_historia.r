@@ -488,6 +488,16 @@ if( PARAM$Tendencias2$run )
   GrabarOutput()
 }
 
+if( PARAM$CanaritosAsesinos$ratio > 0.0)
+{
+  OUTPUT$CanaritosAsesinos$ncol_antes  <- ncol(dataset)
+  CanaritosAsesinos( canaritos_ratio= PARAM$CanaritosAsesinos$ratio,
+                     canaritos_desvios= PARAM$CanaritosAsesinos$desvios,
+                     canaritos_semilla=  PARAM$CanaritosAsesinos$semilla )
+
+  OUTPUT$CanaritosAsesinos$ncol_despues  <- ncol(dataset)
+  GrabarOutput()
+}
 #------------------------------------------------------------------------------
 #Agrego variables a partir de las hojas de un Random Forest
 
@@ -520,6 +530,7 @@ if( PARAM$CanaritosAsesinos$ratio > 0.0)
   OUTPUT$CanaritosAsesinos$ncol_despues  <- ncol(dataset)
   GrabarOutput()
 }
+
 
 #------------------------------------------------------------------------------
 #grabo el dataset

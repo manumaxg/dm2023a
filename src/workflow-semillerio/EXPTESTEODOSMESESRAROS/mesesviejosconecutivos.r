@@ -92,7 +92,6 @@ fwrite( dataset[ foto_mes %in% PARAM$final_train, ],
         sep= "," )
 
 
-
 #grabo los datos donde voy a hacer la optimizacion de hiperparametros
 set.seed( PARAM$train$semilla, kind= "L'Ecuyer-CMRG")
 dataset[ foto_mes %in% PARAM$train$training , azar := runif( nrow(dataset[foto_mes %in% PARAM$train$training ]) ) ]
