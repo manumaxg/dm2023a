@@ -23,7 +23,7 @@ PARAM$exp_input  <- "CA71105"
 PARAM$variables_intrames  <- TRUE   # atencion esto esta en TRUE
 
 #valores posibles  "ninguno" "rank_simple" , "rank_cero_fijo" , "deflacion"
-PARAM$metodo  <- "rank_cero_fijo"
+PARAM$metodo  <- "rank_simple"
 
 PARAM$home  <- "~/buckets/b1/"
 # FIN Parametros del script
